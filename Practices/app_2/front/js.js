@@ -1,9 +1,22 @@
-async function getF1Score() {
-    const URL = "http://localhost:5000/anomaly-predict"
-    console.log(URL)
-    const data = await fetch(URL)
-    const f1score = await data.json()
-    console.log(f1score)
-    const ptxt = document.getElementById("txt-anomaly")
-    ptxt.innerText = f1score
+const btnPredict = document.getElementById("predict")
+btnPredict.addEventListener("click", getF1Score)
+
+async function getF1Score(event) {
+    event.preventDefault()
+    const URL = "http://localhost:4000/anomaly-predict"
+    const response = await fetch(URL)
+    const data = await response.json()
+    console.log(data)
+    const f1Score = data.f1Score 
+    const f1ScoreElement = document.getElementById("txt-anomaly")
+    f1ScoreElement.innerHTML = f1Score
+    const matrix = document.getElementById("matrix")
+    matrix.style.display = "flex"
 }
+
+document.addEventListener("reset", () => {
+    const f1ScoreElement = document.getElementById("txt-anomaly")
+    f1ScoreElement.innerHTML = ""
+    const matrix = document.getElementById("matrix")
+    matrix.style.display = "none"
+});
