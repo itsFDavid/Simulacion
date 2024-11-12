@@ -6,13 +6,14 @@ main{
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 10vh;
+    margin-top: 3vh;
+    flex-direction: column;
 }
 .form{
     background-color: beige;
-    width: 300px;
+    width: 30%;
     aspect-ratio: 16/9;
-    margin: 12px 30px;
+    margin: 5px 30px;
     padding: 10px;
     border-radius: 10px;
     display: flex;
@@ -33,11 +34,27 @@ label{
 .form button {
     font-size: 1.2rem;
     background: bisque;
-    padding: 10px 15px;
+    padding: 5px 10px;
     border-radius: 5px;
     border: solid 1px;
+    margin: 10px 15px;
 }
 
 .form button:hover{
-    padding: 12px 20px;
+    padding: 12px 15px;
+}
+.matrix{
+    display: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5vh;
+    color: antiquewhite;
+    flex-direction: column;
+}
+.matrix img{
+    width: 60%;
+    aspect-ratio: 2/1;
+    margin: 10px;
+    border-radius: 10px;
 }
