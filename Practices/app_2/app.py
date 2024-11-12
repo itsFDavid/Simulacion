@@ -9,7 +9,8 @@ CORS(app)
 @cross_origin()
 def pred_anomaly():
     f1Score = predict()
-    return jsonify({'f1Score': f1Score})
+    f1Score_rounded = round(f1Score, 3)
+    return jsonify({'f1Score': f1Score_rounded})
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=4000, debug=True)
