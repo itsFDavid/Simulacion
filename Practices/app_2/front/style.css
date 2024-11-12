@@ -1,0 +1,43 @@
+body{
+    background: linear-gradient(197deg, black 56%, white 100%);
+    background-attachment: fixed;
+}
+main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10vh;
+}
+.form{
+    background-color: beige;
+    width: 300px;
+    aspect-ratio: 16/9;
+    margin: 12px 30px;
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+label{
+    margin: 10px 15px;
+}
+
+.predict-tx{
+    margin-top: 5vh;
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+.form button {
+    font-size: 1.2rem;
+    background: bisque;
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: solid 1px;
+}
+
+.form button:hover{
+    padding: 12px 20px;
+}
