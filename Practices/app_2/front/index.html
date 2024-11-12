@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anomaly</title>
     <link rel="stylesheet" href="style.css">
-    <script src="js.js"></script>
+    <script src="js.js" defer></script>
 </head>
 <body>
     <main >
@@ -14,8 +14,13 @@
                 <label for="">F1 Score:</label>
                 <p id="txt-anomaly"></p>
             </div>
-            <button type="button" onclick="getF1Score()">Predecir Anomaly</button>
+            <button id="predict">Predecir Anomaly</button>
+            <button type="reset">Limpiar</button>
         </form>
+        <section class="matrix" id="matrix">
+            <h2>Matriz de Confusión</h2>
+            <img src="matrixConfusion.png" alt="matriz de confusion">
+        </section>
     </main>
 </body>
 </html>
