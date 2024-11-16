@@ -8,10 +8,7 @@ data_preparer = DataFramePreparer()
 
 def dataPreparer():
     data_preparer.fit(X_df)
-
     X_train_prep = data_preparer.transform(X_train)
-
-
     X_val_prep = data_preparer.transform(X_val)
     return X_train_prep, X_val_prep, y_train
 
