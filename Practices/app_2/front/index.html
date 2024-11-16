@@ -10,16 +10,36 @@
 <body>
     <main >
         <form class="form">
-            <div class="predict-tx">
-                <label for="">F1 Score:</label>
-                <p id="txt-anomaly"></p>
+            <div class="labels-predicts">
+                <div class="predicts">
+                    <label for="">F1 Score:</label>
+                    <p id="txt-anomaly"></p>
+                </div>
+                <div class="predicts">
+                    <label for="">Precision:</label>
+                    <p id="txt-precision"></p>
+                </div>
+                <div class="predicts">
+                    <label for="">Recall:</label>
+                    <p id="txt-recall"></p>
+                </div>
             </div>
             <button id="predict">Predecir Anomaly</button>
             <button type="reset">Limpiar</button>
         </form>
-        <section class="matrix" id="matrix">
-            <h2>Matriz de Confusión</h2>
-            <img src="matrixConfusion.png" alt="matriz de confusion">
+        <section class="images" id="matrix">
+            <div class="matrix">
+                <h2>Matriz de Confusión</h2>
+                <img src="public/matrixConfusion.png" alt="matriz de confusion">
+            </div>
+            <div class="matrix">
+                <h2>Curva ROC</h2>
+                <img src="public/curveROC.png" alt="matriz de confusion">
+            </div>
+            <div class="matrix">
+                <h2>Curva PR</h2>
+                <img src="public/curvePR.png" alt="matriz de confusion">
+            </div>
         </section>
     </main>
 </body>
