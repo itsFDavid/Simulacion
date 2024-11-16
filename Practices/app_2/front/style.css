@@ -1,60 +1,76 @@
-body{
-    background: linear-gradient(197deg, black 56%, white 100%);
-    background-attachment: fixed;
+body {
+  background: linear-gradient(197deg, black 56%, white 100%);
+  background-attachment: fixed;
 }
-main{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 3vh;
-    flex-direction: column;
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3vh;
+  flex-direction: column;
 }
-.form{
-    background-color: beige;
-    width: 30%;
-    aspect-ratio: 16/9;
-    margin: 5px 30px;
-    padding: 10px;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
+.form {
+  background-color: beige;
+  width: 70%;
+  aspect-ratio: 16/3;
+  margin: 5px 30px;
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
 }
-label{
-    margin: 10px 15px;
+label {
+  margin: 10px 15px;
+}
+.labels-predicts {
+  display: flex;
+  justify-content: space-around;
+  margin: 10px 15px;
 }
 
-.predict-tx{
-    margin-top: 5vh;
-    font-size: 1.5rem;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
+.predicts {
+  font-size: 1.5rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
 }
 
 .form button {
-    font-size: 1.2rem;
-    background: bisque;
-    padding: 5px 10px;
-    border-radius: 5px;
-    border: solid 1px;
-    margin: 10px 15px;
+  font-size: 1.2rem;
+  background: bisque;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: solid 1px;
+  margin: 10px 15px;
 }
 
-.form button:hover{
-    padding: 12px 15px;
+.form button:hover {
+  padding: 12px 15px;
+}
+.images {
+  display: none;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 5vh;
+  color: antiquewhite;
+}
+.images img {
+  width: 100%;
+  margin: 10px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px black;
 }
 .matrix{
-    display: none;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    margin-top: 5vh;
-    color: antiquewhite;
+    display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
-.matrix img{
-    width: 60%;
-    aspect-ratio: 2/1;
-    margin: 10px;
-    border-radius: 10px;
+@media (max-width: 768px){
+    .form{
+        width: 70%;
+    }
+    .labels-predicts{
+        flex-direction: column;
+    }
 }
