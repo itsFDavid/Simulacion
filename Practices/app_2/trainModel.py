@@ -10,7 +10,7 @@ X_train_prep, X_val_prep, y_train = dataPreparer()
 clf = LogisticRegression(max_iter = 5000)
 clf.fit(X_train_prep, y_train)
 
-def predict():
+def f1Score():
     X_test_prep = dataSetPreparer(X_test)
     y_pred = clf.predict(X_test_prep)
     f1Score = f1_score(y_test, y_pred, pos_label = 'anomaly')
