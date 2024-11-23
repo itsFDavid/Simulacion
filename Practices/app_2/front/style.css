@@ -1,6 +1,7 @@
 body {
   background: linear-gradient(197deg, black 56%, white 100%);
   background-attachment: fixed;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 main {
   display: flex;
@@ -10,7 +11,7 @@ main {
   flex-direction: column;
 }
 .form {
-  background-color: beige;
+  background: linear-gradient(197deg, #878a92 20%, #a6aec1 100%);
   width: 70%;
   height: 230px;
   aspect-ratio: 16/3;
@@ -36,17 +37,29 @@ label {
   align-items: center;
 }
 
+.actions{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  flex-direction: column;
+}
+
 .form button {
   font-size: 1.2rem;
   background: bisque;
   padding: 5px 10px;
   border-radius: 5px;
   border: solid 1px;
-  margin: 10px 15px;
+  margin: 20px 15px;
+  width: 80%;
+  transition: ease-in-out;
+  background: linear-gradient(197deg, #6c788e 45%, #fcfdff 100%);
 }
 
 .form button:hover {
-  padding: 12px 15px;
+  width: 85%;
+
 }
 .images {
   display: none;
