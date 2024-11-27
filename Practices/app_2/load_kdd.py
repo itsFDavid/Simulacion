@@ -3,8 +3,6 @@ import pandas as pd
 import numpy as np
 
 
-
-
 def load_kdd_dataset(data_path):
     """Lectura del DataSet NSL-KDD."""
     with open(data_path, 'r') as train_set:

@@ -9,6 +9,7 @@ X_test, y_test = dataSetTest()
 X_train_prep, X_val_prep, y_train = dataPreparer()
 X_val, y_val = dataSetVal()
 
+
 clf = LogisticRegression(max_iter = 5000)
 clf.fit(X_train_prep, y_train)
 

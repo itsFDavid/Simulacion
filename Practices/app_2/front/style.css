@@ -1,7 +1,7 @@
 body {
   background: linear-gradient(197deg, black 56%, white 100%);
   background-attachment: fixed;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 main {
   display: flex;
@@ -12,8 +12,8 @@ main {
 }
 .form {
   background: linear-gradient(197deg, #878a92 20%, #a6aec1 100%);
-  width: 70%;
-  height: 230px;
+  width: 80%;
+  height: auto;
   aspect-ratio: 16/3;
   margin: 5px 30px;
   padding: 10px;
@@ -37,12 +37,18 @@ label {
   align-items: center;
 }
 
-.actions{
+.actions {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  width: 100%;
+  justify-content: center;
   flex-direction: column;
+  width: 100%;
+  && div {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+  }
 }
 
 .form button {
@@ -59,7 +65,6 @@ label {
 
 .form button:hover {
   width: 85%;
-
 }
 .images {
   display: none;
@@ -74,17 +79,17 @@ label {
   border-radius: 10px;
   box-shadow: 5px 5px 5px black;
 }
-.matrix{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+.matrix {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
-@media (max-width: 768px){
-    .form{
-        width: 70%;
-    }
-    .labels-predicts{
-        flex-direction: column;
-    }
+@media (max-width: 768px) {
+  .form {
+    width: 70%;
+  }
+  .labels-predicts {
+    flex-direction: column;
+  }
 }

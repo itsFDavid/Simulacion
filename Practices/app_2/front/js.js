@@ -1,16 +1,18 @@
+const URL = "http://localhost:4000";
+const responseTxt = document.getElementById("responseTxt");
+
 const btnPredict = document.getElementById("predict");
-btnPredict.addEventListener("click", (event) => {
-  getF1Score(event);
-  getPrecision(event);
-  getRecall(event);
+btnPredict.addEventListener("click", async (event) => {
+  await getF1Score(event);
+  await getPrecision(event);
+  await getRecall(event);
 });
 
 async function getF1Score(event) {
   event.preventDefault();
-  const URL = "http://localhost:4000/f1-Score";
-  const response = await fetch(URL);
+  let url = URL + "/f1-Score";
+  const response = await fetch(url);
   const data = await response.json();
-  console.log(data);
   const f1Score = data.f1Score;
   const f1ScoreElement = document.getElementById("txt-anomaly");
   f1ScoreElement.innerHTML = f1Score;
@@ -19,8 +21,8 @@ async function getF1Score(event) {
 }
 async function getPrecision(event) {
   event.preventDefault();
-  const URL = "http://localhost:4000/precision-Score";
-  const response = await fetch(URL);
+  let url = URL + "/precision-Score";
+  const response = await fetch(url);
   const data = await response.json();
   console.log(data);
   const precision = data.precisionScore;
@@ -29,10 +31,9 @@ async function getPrecision(event) {
 }
 async function getRecall(event) {
   event.preventDefault();
-  const URL = "http://localhost:4000/recall-Score";
-  const response = await fetch(URL);
+  const url = URL + "/recall-Score";
+  const response = await fetch(url);
   const data = await response.json();
-  console.log(data);
   const recall = data.recallScore;
   const recallElement = document.getElementById("txt-recall");
   recallElement.innerHTML = recall;
