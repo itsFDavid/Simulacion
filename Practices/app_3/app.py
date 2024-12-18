@@ -10,18 +10,21 @@ CORS(app)
 
 @app.route("/f1-score-reduced", methods=["GET"])
 def predict_f1_reduced():
+    """Predict the f1 score of the model"""
     f1_score = get_f1_score_reduced()
     return jsonify({'f1_score': f1_score})
 
 
 @app.route("/f1-score", methods=["GET"])
 def predict_f1_score():
+    """Predict the f1 score of the model"""
     f1_score = get_f1_score()
     return jsonify({'f1_score': f1_score})
 
 
 @app.route("/f1-score-poly", methods=["GET"])
 def predict_f1_score_poly():
+    """Predict the f1 score of the model"""
     f1_score = get_f1_score_polynomial()
     return jsonify({'f1_score': f1_score})
 
