@@ -37,27 +37,33 @@ polynomial_svm_clf = Pipeline([
 polynomial_svm_clf.fit(X_train_reduced, y_train_num)
 
 def model_reduced_predict():
+    """Predict the reduced dataset"""
     y_pred = svm_clf_sc.predict(X_val_reduced)
     return y_pred
 
 
 def get_f1_score_reduced():
+    """Get the f1 score of the reduced dataset"""
     y_pred = model_reduced_predict()
     return f1_score(y_pred, y_val, pos_label = 'phishing')
 
 
 def model_predict():
+    """Predict the dataset"""
     y_pred = svm_clf.predict(X_val_prep)
     return y_pred
 
 def get_f1_score():
+    """Get the f1 score of the dataset"""
     y_pred = model_predict()
     return f1_score(y_pred, y_val, pos_label = 'phishing')
 
 def model_polynomial():
+    """Predict the polynomial dataset"""
     y_pred = polynomial_svm_clf.predict(X_val_reduced)
     return y_pred
 
 def get_f1_score_polynomial():
+    """Get the f1 score of the polynomial dataset"""
     y_pred = model_polynomial()
     return f1_score(y_pred, y_val_num)
