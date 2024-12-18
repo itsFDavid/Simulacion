@@ -9,7 +9,7 @@ X_test_, y_test = divide_test()
 
 
 def prepare_dataset():
-    
+    """Preparar el conjunto de datos para el entrenamiento del modelo"""
     # Eliminar los atributos que contengan valores infinitos
     X_train = X_train_.drop("argPathRatio", axis = 1)
     X_val = X_val_.drop("argPathRatio", axis = 1)
