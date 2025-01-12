@@ -1,11 +1,18 @@
 "use client";
 
 import { useState } from "react";
+import { TestData } from "../common/test-data.interface";
 
-export default function TestDataSelector({ testData, onSelectData }) {
-  const [selectedData, setSelectedData] = useState(null);
 
-  const handleSelect = (data) => {
+interface TestDataSelectorProps {
+  testData: TestData[];
+  onSelectData: (data: TestData) => void;
+}
+
+export default function TestDataSelector({ testData, onSelectData }: TestDataSelectorProps) {
+  const [selectedData, setSelectedData] = useState<TestData | null>(null);
+
+  const handleSelect = (data: TestData): void => {
     setSelectedData(data);
     console.log("Selected data:", data);
     // Llamamos a la función pasada como prop para actualizar los datos en el formulario

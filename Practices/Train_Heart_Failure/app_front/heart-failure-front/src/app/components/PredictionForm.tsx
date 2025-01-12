@@ -2,8 +2,13 @@
 
 import { useState } from "react";
 import TestDataSelector from "./TestDataSelector"; // Asegúrate de importar el componente
+import { TestData } from "../common/test-data.interface";
 
-export default function PredictionForm({ testData }) {
+interface PredictionFormProps {
+  testData: TestData[];
+}
+
+export default function PredictionForm({ testData }: PredictionFormProps) {
   const [formData, setFormData] = useState({
     Age: "",
     Sex: "",
@@ -18,7 +23,7 @@ export default function PredictionForm({ testData }) {
     ST_Slope: "",
     HeartDisease: "",
   });
-  const [prediction, setPrediction] = useState(null);
+  const [prediction, setPrediction] = useState<number | null>(null);
 
   // Mapeo de keys en inglés a etiquetas en español
   const translations = {
@@ -36,11 +41,17 @@ export default function PredictionForm({ testData }) {
     HeartDisease: "Enfermedad del Corazón",
   };
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  interface PredictionResponse {
+    prediction: {
+      prediction: number;
+    };
+  }
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     fetch("/api/predict", {
       method: "POST",
@@ -50,7 +61,7 @@ export default function PredictionForm({ testData }) {
       body: JSON.stringify(formData),
     })
       .then((response) => response.json())
-      .then((data) => {
+      .then((data: PredictionResponse) => {
         setPrediction(data.prediction.prediction);
       })
       .catch((error) =>
@@ -58,8 +69,21 @@ export default function PredictionForm({ testData }) {
       );
   };
 
-  const handleSelectData = (data) => {
-    setFormData(data);
+  const handleSelectData = (data: TestData) => {
+    setFormData({
+      Age: data.Age.toString(),
+      Sex: data.Sex,
+      ChestPainType: data.ChestPainType,
+      RestingBP: data.RestingBP.toString(),
+      Cholesterol: data.Cholesterol.toString(),
+      FastingBS: data.FastingBS.toString(),
+      RestingECG: data.RestingECG,
+      MaxHR: data.MaxHR.toString(),
+      ExerciseAngina: data.ExerciseAngina,
+      Oldpeak: data.Oldpeak.toString(),
+      ST_Slope: data.ST_Slope,
+      HeartDisease: data.HeartDisease.toString(),
+    });
   };
 
   return (
@@ -81,14 +105,14 @@ export default function PredictionForm({ testData }) {
                 className="block text-gray-700 text-sm sm:text-base font-bold mb-2"
                 htmlFor={key}
               >
-                {translations[key]}
+                {translations[key as keyof typeof formData]}
               </label>
               <input
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 id={key}
                 name={key}
                 type="text"
-                value={formData[key]}
+                value={formData[key as keyof typeof formData]}
                 onChange={handleChange}
               />
             </div>
