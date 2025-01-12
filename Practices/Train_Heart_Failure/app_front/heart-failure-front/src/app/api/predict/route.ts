@@ -1,9 +1,13 @@
 import { NextResponse } from 'next/server'
+import {URL} from '../url'
 
 export async function POST(request: Request) {
     const body = await request.json()
-    const URL = "http://127.0.0.1:4000/predict"
-    const response = await fetch(URL, {
+    const URL_PREDICT = URL + '/predict'
+    if (!URL_PREDICT) {
+        return NextResponse.json({ error: 'MODEL_SERVER environment variable is not set' }, { status: 500 });
+    }
+    const response = await fetch(URL_PREDICT, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
