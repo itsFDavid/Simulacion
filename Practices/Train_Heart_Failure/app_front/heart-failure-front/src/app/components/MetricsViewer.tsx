@@ -2,8 +2,13 @@
 
 import { useState, useEffect } from "react";
 
+interface Metrics {
+  accuracy: number;
+  f1_score: number;
+}
+
 export default function MetricsViewer() {
-  const [metrics, setMetrics] = useState(null);
+  const [metrics, setMetrics] = useState<Metrics | null>(null);
 
   useEffect(() => {
     fetch("/api/metrics")
