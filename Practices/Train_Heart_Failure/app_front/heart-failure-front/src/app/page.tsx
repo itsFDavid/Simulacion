@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import MetricsViewer from "./components/MetricsViewer";
 import PredictionForm from "./components/PredictionForm";
+import Metrics from "./components/Metrics";
 
 export default function Home() {
   const [testData, setTestData] = useState([]);
@@ -19,17 +20,19 @@ export default function Home() {
       <h1 className="text-3xl font-bold mb-6">
         Detector de enfermedad al corazón
       </h1>
-      {/* Contenedor principal en forma de grid */}
+
       <div className="grid grid-cols-1 lg:grid-cols-1 gap-6">
-        {/* Primer componente: MetricsViewer */}
         <div className="w-full">
           <MetricsViewer />
         </div>
 
-        {/* Segundo componente: PredictionForm */}
         <div className="w-full">
           <PredictionForm testData={testData} />
         </div>
+      </div>
+      <div>
+        <h3>Metricas</h3>
+        <Metrics />
       </div>
     </main>
   );
