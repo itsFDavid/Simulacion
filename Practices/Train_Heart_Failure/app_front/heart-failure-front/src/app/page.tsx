@@ -30,8 +30,8 @@ export default function Home() {
           <PredictionForm testData={testData} />
         </div>
       </div>
-      <div>
-        <h3>Metricas</h3>
+      <div className="mt-10">
+        <h3 className="text-center text-lg font-bold">Metricas</h3>
         <Metrics />
       </div>
     </main>
